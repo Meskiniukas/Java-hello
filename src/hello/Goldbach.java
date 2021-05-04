@@ -10,14 +10,18 @@ public class Goldbach {
 
         boolean primesum = false;
         for (int i = 4; i <= 2000; i += 2) {
-            for (int sk = 2; sk <= i - 2; sk++) {
-                if (primesum) {
-                    primesum = false;
-                    break;
-                }
-                if (isPrime(sk) && isPrime(i - sk)) {
-                    System.out.println(i + " = " + sk + " + " + (i - sk) + ";");
-                    primesum = i != 4;
+            if (i == 4) {
+                System.out.println("4 = 2 + 2;");
+            } else {
+                for (int sk = 3; sk <= i - 3; sk += 2) {
+                    if (primesum) {
+                        primesum = false;
+                        break;
+                    }
+                    if (isPrime(sk) && isPrime(i - sk)) {
+                        System.out.println(i + " = " + sk + " + " + (i - sk) + ";");
+                        primesum = i != 6;
+                    }
                 }
             }
         }
