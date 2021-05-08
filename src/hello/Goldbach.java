@@ -24,13 +24,10 @@ public class Goldbach {
 
     public static boolean isPrime(int sk) {
 
-        if (sk < 2) {
-            return false;
-        }
         if (sk == 2) {
             return true;
         }
-        if (sk % 2 == 0) {
+        if (sk < 2 || sk % 2 == 0) {
             return false;
         }
         for (int i = 3; i <= sk / 2; i += 2) {
